@@ -34,6 +34,6 @@
         android:id="@+id/todo_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/todo_complete_label"/>
+        android:text="@string/todo_complete_label" />
 
 </LinearLayout>
