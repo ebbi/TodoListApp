@@ -60,7 +60,8 @@ public class TodoListFragment extends Fragment {
                 Todo todo = new Todo();
                 TodoModel.get(getActivity()).addTodo(todo);
 
-                Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
+                Intent intent = TodoPagerActivity.newIntent(getActivity(), todo.getId());
+  //              Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
                 startActivity(intent);
 
                 return true;
@@ -119,7 +120,9 @@ public class TodoListFragment extends Fragment {
                     Toast.LENGTH_SHORT)
                     .show();
 
-            Intent intent = TodoActivity.newIntent(getActivity(), mTodo.getId());
+//            Intent intent = TodoActivity.newIntent(getActivity(), mTodo.getId());
+            Intent intent = TodoPagerActivity.newIntent(getActivity(), mTodo.getId());
+
             startActivity(intent);
 
         }
