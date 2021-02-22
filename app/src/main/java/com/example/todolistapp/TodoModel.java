@@ -9,7 +9,7 @@ public class TodoModel {
 
     private static TodoModel sTodoModel;
 
-    private ArrayList<Todo> mTodoList;
+    private final ArrayList<Todo> mTodoList;
 
     public static TodoModel get(Context context) {
         if (sTodoModel == null) {
@@ -24,7 +24,7 @@ public class TodoModel {
         // refactor to pattern for data plugins
         // simulate some data for testing
 
-        for (int i=0; i < 3; i++){
+        for (int i=0; i < 30; i++){
             Todo todo = new Todo();
             todo.setTitle("Todo title " + i);
             todo.setDetail("Detail for task " + todo.getId().toString());

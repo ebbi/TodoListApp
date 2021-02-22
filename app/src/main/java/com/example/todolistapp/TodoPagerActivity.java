@@ -19,10 +19,8 @@ import java.util.UUID;
 
 public class TodoPagerActivity extends AppCompatActivity {
 
-
     private static final String EXTRA_TODO_ID = "todo_id";
 
-    private ViewPager mViewPager;
     private List<Todo> mTodos;
 
     public static Intent newIntent(Context packageContext, UUID todoId){
@@ -38,7 +36,7 @@ public class TodoPagerActivity extends AppCompatActivity {
 
         UUID todoId = (UUID) getIntent().getSerializableExtra(EXTRA_TODO_ID);
 
-        mViewPager = findViewById(R.id.todo_view_pager);
+        ViewPager mViewPager = findViewById(R.id.todo_view_pager);
 
         mTodos = TodoModel.get(this).getTodos();
 

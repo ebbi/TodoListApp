@@ -2,6 +2,7 @@ package com.example.todolistapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -71,7 +72,6 @@ public class TodoListFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -80,9 +80,8 @@ public class TodoListFragment extends Fragment {
 
     private void updateUI(){
 
-        ArrayList todos = new ArrayList<>();
         TodoModel todoModel = TodoModel.get(getContext());
-        todos = todoModel.getTodos();
+        ArrayList<Todo> todos = todoModel.getTodos();
 
         if (mTodoAdapter == null) {
             mTodoAdapter = new TodoAdapter(todos);
@@ -97,8 +96,8 @@ public class TodoListFragment extends Fragment {
             implements View.OnClickListener {
 
         private Todo mTodo;
-        private TextView mTextViewTitle;
-        private TextView mTextViewDate;
+        private final TextView mTextViewTitle;
+        private final TextView mTextViewDate;
 
         public TodoHolder(LayoutInflater inflater, ViewGroup parent) {
 
@@ -137,14 +136,15 @@ public class TodoListFragment extends Fragment {
 
     public class TodoAdapter extends RecyclerView.Adapter<TodoListFragment.TodoHolder> {
 
-        private List<Todo> mTodos;
+        private final List<Todo> mTodos;
 
         public TodoAdapter(List<Todo> todos) {
             mTodos = todos;
         }
 
+        @NonNull
         @Override
-        public TodoListFragment.TodoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public TodoListFragment.TodoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
             return new TodoHolder(layoutInflater, parent);
